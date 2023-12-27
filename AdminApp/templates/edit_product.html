@@ -1,0 +1,49 @@
+{% extends 'admin.html' %}
+{% block contents %}
+<div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Add Products</h4>
+        {% for i in data %}
+        <form class="forms-sample" action="{% url 'update_products' id=i.id %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+          <div class="form-group row">
+            <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Product name</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="exampleInputUsername2" placeholder="Enter Product name" name="PRODUCT" value="{{i.Product_name}}">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="exampleInputEmail2" class="col-sm-3 col-form-label">category</label>
+            <select name="CATEGORY" id="" >
+              {% for i in data1 %}
+              <option value="{{i.Category_name}}">{{i.Category_name}}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="form-group row">
+            <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Description</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="exampleInputEmail2" placeholder="write here.." name="DESCRIPTION" value="{{i.Product_description}}">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Price</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="exampleInputEmail2" placeholder="" name="PRICE" value="{{i.Product_price}}">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="exampleInputMobile" class="col-sm-3 col-form-label">Image</label>
+            <div class="col-sm-9">
+              <input type="file" class="form-control" name="IMAGE">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary mr-2">Submit</button>
+          <button class="btn btn-dark">Cancel</button>
+        </form>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

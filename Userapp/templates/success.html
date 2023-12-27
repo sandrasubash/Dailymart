@@ -1,0 +1,11 @@
+{% extends 'user.html' %}
+{% block contents %}
+<div class="testimonial-header text-center">
+    <h4 class="text-primary">Thank You</h4>
+    <h1 class="display-5 mb-5 text-dark">Your Order is Placed!</h1>
+</div>
+<div class="row g-4  text-start align-items-center justify-content-center border-bottom py-3">
+    <div class="table-responsive">
+        <p><a href="{% url 'myorders' %}"> <h6 class="text-primary mb-5 text-center">View Orders</a></h6></p>
+{% endblock %}
+<!-- Checkout Page End -->

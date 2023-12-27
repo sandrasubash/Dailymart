@@ -1,0 +1,76 @@
+{% extends 'user.html' %}
+{% block contents %}
+ <!-- Single Product Start -->
+ <div class="container-fluid py-5 mt-5">
+    <div class="container py-5">
+        <div class="row g-4 mb-5">
+            <div class="col-lg-8 col-xl-9">
+                <div class="row g-4">
+                    
+                    {% for i in data %}
+                    <div class="col-lg-6">
+                        <div class="border rounded">
+                            <a href="#">
+                                <img src="{{i.Image.url}}" class="img-fluid rounded" alt="Image" style="height: 400px;width: 470px;">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <h4 class="fw-bold mb-3">{{i.Product_name}}</h4>
+                        <p class="mb-3">Category:{{i.Product_category}}</p>
+                        <h5 class="fw-bold mb-3">{{i.Price}}</h5>
+                        <div class="d-flex mb-4">
+                            <i class="fa fa-star text-secondary"></i>
+                            <i class="fa fa-star text-secondary"></i>
+                            <i class="fa fa-star text-secondary"></i>
+                            <i class="fa fa-star text-secondary"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <p class="mb-4">{{i.Product_description}}</p>
+                        
+                        <form action="{% url 'add_to_cart' id=i.id %}" method="POST">
+                            {% csrf_token %}
+                            
+                            <div class="input-group quantity mb-5" style="width: 100px;">
+                                <div class="input-group-btn">
+                                   
+                                </div>
+                                <input type="number" name="product_quantity" class="form-control form-control-sm text-center border-0"  id="quantity"  value="1" min="1" max="100">
+                                <div class="input-group-btn">
+                                </div>
+                            </div>
+                        <input type="hidden" name="product_price" class="price" id="price" value="{{i.Product_price}}">
+                        <input type="text" class="total" id="total" name="product_total" value="{{i.Product_price}}" style="width: 100px; background-color: antiquewhite;">
+                        <div class="input-group-btn">
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+                        <button type="submit" style="width: 50%;margin-left: 37%;" class="btn border border-secondary rounded-pill px-4 py-2 mb-4 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</button>
+                   
+                </form>
+               
+                     {% endfor %}
+                </div>
+            </div>
+
+        </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function()
+        {
+            $('#quantity').on('change', function(){
+                var quantity=$('#quantity').val();
+                var price=$('#price').val();
+                var total=parseInt(quantity)*parseInt(price);
+                $('#total').val(total);
+            })
+        })
+    </script>
+<!-- Single Product End -->
+{% endblock %}

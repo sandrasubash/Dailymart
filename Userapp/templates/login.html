@@ -1,0 +1,33 @@
+{% extends 'user.html' %}
+{% block contents %}
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="mx-auto text-center wow fadeIn" data-wow-delay="0.1s" style="max-width: 600px;">
+            <h1 class="text-primary mb-5"><span class="fw-light text-dark">LOGIN</span></h1></div>
+            {{msg}}
+        <div class="row g-5">
+            <div class="col-lg-7 wow fadeIn" data-wow-delay="0.1s">
+                <div class="wow fadeIn" data-wow-delay="0.3s">
+                    <form action="{% url 'publicdata' %}" method="POST">
+                        {% csrf_token %}
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="name" placeholder="Your Name" name="NAME">
+                                    <label for="name"> Name</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <textarea class="form-control" placeholder="password" id="message" name="PASSWORD" style="height: 150px"></textarea>
+                                    <label for="message">Password</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary w-100 py-3" type="submit">Login</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+{% endblock %}

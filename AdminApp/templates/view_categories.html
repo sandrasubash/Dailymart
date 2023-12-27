@@ -1,0 +1,28 @@
+{% extends 'admin.html' %}
+{%block contents %}
+      <!-- <div class="row">
+        <div class="col-lg-6 grid-margin stretch-card">
+          <div class="card"> -->
+           
+              <h4 class="card-title">Categories</h4>
+              <div class="table-responsive">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Category Name</th>
+                      <th>Description</th>
+                      <th>Image</th>
+                      <th>Edit</th>
+                      <th>Delete</th>
+                    </tr>
+                  </thead>
+                    {% for i in data%}
+                    <tr>
+                      <td>{{i.Category_name}}</td>
+                      <td>{{i.Category_description}}</td>
+                      <td><img src="{{i.Category_Image.url}}"></td>
+                      <td><a href="{% url 'edit_category' id=i.id %}"><label class="badge badge-info">Edit</label></a></td>
+                      <td><a href="{% url 'delete_category' id=i.id %}"><label class="badge badge-danger">Delete</label></a></td>
+                    </tr>
+                    {% endfor %}
+                    {% endblock %}

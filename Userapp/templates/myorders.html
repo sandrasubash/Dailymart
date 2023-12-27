@@ -1,0 +1,65 @@
+{% extends 'user.html' %}
+{% block contents %}
+<div class="row g-4  text-start align-items-center justify-content-center border-bottom py-3">
+    <div class="table-responsive">
+        <p><h3 class="text-primary mb-5 text-center">Orders</h3></p>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Products</th>
+                <th scope="col">Name</th>
+                <th  scope="col">Price</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Total</th>
+                <th scope="col">Delivery Status</th>
+              </tr>
+            </thead>
+            {% for i in data %}
+            <tbody>
+                <tr>
+                    <th scope="row">
+                        <div class="d-flex align-items-center">
+                            <img src="{{i.cart_id.product_id.Image.url}}" class="img-fluid me-5 rounded-circle" style="width: 80px; height: 80px;" alt="">
+                        </div>
+                    </th>
+                    <td>
+                        <p class="mb-0 mt-4">{{i.cart_id.product_id.Product_name}}</p>
+                    </td>
+                    <td>
+                        <p class="mb-0 mt-4">{{i.cart_id.product_id.Product_price}}</p>
+                    </td>
+                    <td>
+                        <p class="mb-0 mt-4">{{i.cart_id.quantity}}</p>
+                    </td>
+                    <td>
+                        <p class="mb-0 mt-4">{{i.cart_id.total_amt}}</p>
+                    </td>
+                    {% if i.status == 0 %}
+                    <td>
+                        <p class="btn border border-dark rounded-pill px-3 text-dark text-center" style="margin-top: 20px;width: 150px;" >Not Delivered</p>
+                        
+                    </td>
+                    {% elif i.status == 1 %}
+                    <td>
+                        <p class="btn border border-primary rounded-pill px-3 text-primary text-center" style="margin-top: 20px;width: 150px;" >Delivered</p>
+                        
+                    </td>
+                    {% else %}
+                    <td>
+                        <p class="btn border border-danger rounded-pill px-3 text-danger text-center" style="margin-top: 20px;width: 150px;" >Cancelled</p>
+                        
+                    </td>
+                    {% endif %}
+                </tr>
+                
+            </tbody>
+            {% endfor %}
+        </table>
+<div>
+    <a href="{% url 'categories' %}" class="btn border border-secondary rounded-pill px-4 py-2 mb-4 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Shop More</a>
+</div>
+</div>
+</div>
+</div>
+{% endblock %}
+<!-- Checkout Page End -->

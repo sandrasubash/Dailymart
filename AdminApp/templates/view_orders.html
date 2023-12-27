@@ -1,0 +1,36 @@
+{% extends 'admin.html' %}
+{%block contents %}
+
+    <!-- <div class="content-wrapper">
+      <div class="row">
+        <div class="col-lg-6 grid-margin stretch-card">
+          <div class="card">
+            <div class="card-body"> -->
+              <h4 class="card-title">Orders</h4>
+              <div class="table-responsive">
+                <table class="table" border="1px" >
+                  <thead>
+                    <tr>
+                      <th>Product</th>
+                      <th></th>
+                      <th>Category </th>
+                      <th>Quantity</th>
+                      <th>Total Price</th>
+                      <th>Delivery Adress</th>
+                      <th>Delivery Status</th>
+                     
+                    </tr>
+                  </thead>
+                  {% for i in data_2 %}
+                    <tr>
+                      <td>{{i.cart_id.product_id.Product_name}}</td>
+                      <td><img src="{{i.cart_id.product_id.Image.url}}" style="height: 120px;width: 120px;"></td>
+                      <td>{{i.cart_id.product_id.Product_category}}</td>
+                      <td>{{i.cart_id.quantity}}</td>
+                      <td>{{i.cart_id.total_amt}}</td>
+                      <td>{{i.Address}}<br>{{i.town}}<br>{{i.Pincode}}</td>
+                      <td><a href="{% url 'order_delivered' id=i.id %}"><label class="badge badge-info">Delivered</label></a></td>
+                      <td><a href="{% url 'order_not_delivered' id=i.id %}"><label class="badge badge-info">Not Delivered</label></a></td>                    
+                    </tr>
+                    {% endfor %}
+                    {% endblock %}

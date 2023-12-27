@@ -1,0 +1,24 @@
+{% extends 'admin.html' %}
+{%block contents %}
+    <!-- <div class="content-wrapper">
+      <div class="row">
+        <div class="col-lg-6 grid-margin stretch-card">
+          <div class="card">
+            <div class="card-body">
+              <div class="table-responsive"> -->
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>User name </th>
+                      <th>Email id</th>
+                      <th>Message</th>
+                    </tr>
+                  </thead>
+                    {% for i in data%}
+                    <tr>
+                      <td>{{i.Name}}</td>
+                      <td>{{i.Email}}</td>
+                      <td>{{i.Message}}</td>
+                    </tr>
+                    {% endfor %}
+                    {% endblock %}

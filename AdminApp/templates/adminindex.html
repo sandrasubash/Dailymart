@@ -1,0 +1,90 @@
+{% extends 'admin.html' %}
+{% block contents %}
+<div class="row">
+  <div class="col-sm-3 grid-margin " style="color: rgb(182, 126, 178);">
+    <div class="card">
+      <div class="card-body" style="height: 200px;width:200px;" >
+        <a href="{% url 'view_category' %}"><h5 style=" color: rgb(182, 126, 178);" >Cartegories</h5></a>
+        <div class="row">
+          <div class="col-8 col-sm-12 col-xl-8 my-auto">
+            <div class="d-flex d-sm-block d-md-flex align-items-center">
+              <h2 class="mb-0">{{Categories}}</h2>
+            </div>
+          </div>
+          <div class="col-4 col-sm-6 col-xl-4 text-center text-xl-right">
+            <i class="icon-lg mdi mdi-cards text-primary ml-auto"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="col-sm-3 grid-margin" style=" color: rgb(243, 147, 147);">
+      <div class="card">
+        <div class="card-body" style="height: 200px;width:200px;" >
+          <a href="{% url 'view_products' %}"><h5 style=" color: rgb(243, 147, 147);" >Products</h5></a>
+          <div class="row">
+            <div class="col-8 col-sm-12 col-xl-8 my-auto">
+              <div class="d-flex d-sm-block d-md-flex align-items-center">
+                <h2 class="mb-0">{{Product}}</h2>
+              </div>
+            </div>
+            <div class="col-4 col-sm-6 col-xl-4 text-center text-xl-right">
+              <i class="icon-lg mdi mdi-buffer text-primary ml-auto"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3 grid-margin" style=" color: rgb(129, 178, 129);" >
+      <div class="card">
+        <div class="card-body" style="height: 200px;width:200px;" >
+          <a href="{% url 'view_registrations' %}"><h5 style=" color: rgb(129, 178, 129);" >Registrations</h5></a>
+          <div class="row">
+            <div class="col-8 col-sm-12 col-xl-8 my-auto">
+              <div class="d-flex d-sm-block d-md-flex align-items-center">
+                <h2 class="mb-0">{{Registrations}}</h2>
+              </div>
+            </div>
+            <div class="col-4 col-sm-6 col-xl-4 text-center text-xl-right">
+              <i class="icon-lg mdi mdi-dictionary text-primary ml-auto"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3 grid-margin" style=" color: rgb(215, 215, 143);" >
+      <div class="card">
+        <div class="card-body" style="height: 200px;width:200px;" >
+          <a href="{% url 'view_orders' %}"><h5 style=" color: rgb(215, 215, 143);" >Orders</h5></a>
+          <div class="row">
+            <div class="col-8 col-sm-12 col-xl-8 my-auto">
+              <div class="d-flex d-sm-block d-md-flex align-items-center">
+                <h2 class="mb-0">{{Orders}}</h2>
+              </div>
+            </div>
+            <div class="col-4 col-sm-6 col-xl-4 text-center text-xl-right">
+              <i class="icon-lg mdi mdi-briefcase-check text-primary ml-auto"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      <div class="col-sm-3 grid-margin" style=" color: pink;">
+        <div class="card">
+          <div class="card-body" style="height: 200px;width:200px;" >
+            <a href="{% url 'view_contact' %}"><h5 style=" color: pink;" >Contacts</h5></a>
+            <div class="row">
+              <div class="col-8 col-sm-12 col-xl-8 my-auto">
+                <div class="d-flex d-sm-block d-md-flex align-items-center">
+                  <h2 class="mb-0">{{Contacts}}</h2>
+                </div>
+              </div>
+              <div class="col-4 col-sm-6 col-xl-4 text-center text-xl-right">
+                <i class="icon-lg mdi mdi-message-alert text-primary ml-auto"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+       
+{% endblock %}
